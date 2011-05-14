@@ -18,8 +18,6 @@ package org.fakeroot.android.osmpointtomap;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class InfoPop {
 

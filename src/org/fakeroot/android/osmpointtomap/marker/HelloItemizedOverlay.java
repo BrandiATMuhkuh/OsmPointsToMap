@@ -20,13 +20,10 @@ import java.util.ArrayList;
 
 import org.fakeroot.android.osmpointtomap.InfoPop;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
-
 import com.google.android.maps.ItemizedOverlay;
-import com.google.android.maps.OverlayItem;
 
 public class HelloItemizedOverlay extends ItemizedOverlay<OverlayMarker> {
 

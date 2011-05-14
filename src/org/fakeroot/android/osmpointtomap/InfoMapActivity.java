@@ -16,7 +16,6 @@
  */
 package org.fakeroot.android.osmpointtomap;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,7 +26,6 @@ import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;

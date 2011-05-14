@@ -17,11 +17,8 @@
 package org.fakeroot.android.osmpointtomap;
 
 import android.app.Activity;
-import android.app.TabActivity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.widget.TabHost;
 
 public class OsmPointToMap extends Activity {
     /** Called when the activity is first created. */
