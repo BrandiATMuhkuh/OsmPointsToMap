@@ -32,7 +32,7 @@ public class InfoMapController {
 	
 	
 	public void onMapChanged(BoundingBox bbox){		
-		
+		//_worker.getPoi(bbox);
 		_activity.drawMarker(_worker.getPoi(bbox));
 		
 

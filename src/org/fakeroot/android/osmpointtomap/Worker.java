@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 import com.google.gson.Gson;
 
@@ -162,9 +164,10 @@ public class Worker {
 		    
 		    Log.d("response", str.toString());
 		    
+		    String dJson = URLDecoder.decode(str.toString());
 			//PoiContainer points = gson.fromJson("{\"poi\":[]}", PoiContainer.class);
 
-			PoiContainer points = gson.fromJson(str.toString(), PoiContainer.class);
+			PoiContainer points = gson.fromJson(dJson, PoiContainer.class);
 			_responseSave=points.getPoi();
 
 			
