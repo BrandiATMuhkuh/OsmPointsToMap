@@ -21,6 +21,7 @@ import java.io.Serializable;
 public class PoiDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	private int osmid; 
 	private double lat;
 	private double lng;
 	private String title;
@@ -32,8 +33,9 @@ public class PoiDTO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PoiDTO(double lat, double lng, String title, String keyname, String keyvalue, String amentiy) {
+	public PoiDTO(int osmid, double lat, double lng, String title, String keyname, String keyvalue, String amentiy) {
 		super();
+		this.osmid=osmid;
 		this.lat = lat;
 		this.lng = lng;
 		this.title = title;
@@ -70,9 +72,9 @@ public class PoiDTO implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "PoiDTO [lat=" + lat + ", lng=" + lng + ", title=" + title
-				+ ", amenity=" + amenity + ", keyname=" + keyname
-				+ ", keyvalue=" + keyvalue + "]";
+		return "PoiDTO [osmid=" + osmid + ", lat=" + lat + ", lng=" + lng
+				+ ", title=" + title + ", amenity=" + amenity + ", keyname="
+				+ keyname + ", keyvalue=" + keyvalue + "]";
 	}
 
 	/**
@@ -95,6 +97,13 @@ public class PoiDTO implements Serializable {
 	 */
 	public String getKeyVame() {
 		return keyvalue;
+	}
+
+	/**
+	 * @return the osmid
+	 */
+	public int getOsmid() {
+		return osmid;
 	}
 	
 	

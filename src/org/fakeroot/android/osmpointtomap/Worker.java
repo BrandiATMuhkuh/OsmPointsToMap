@@ -24,8 +24,19 @@ import java.net.URL;
 
 import com.google.gson.Gson;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
+
+/**
+ * The first time start the worker you must
+ * setUrl()
+ * and can set
+ * setKeys()
+ * setAmenities()
+ * 
+ *
+ */
 public class Worker {
 
 	private static Worker _worker;
@@ -33,15 +44,31 @@ public class Worker {
 	private KeyAmenityStyle[] _keys = null;
 	private KeyAmenityStyle[] _amenities = null;
 	private Gson gson = new Gson();
+	private String _url;
 
+	/**
+	 * Set KeyAmenityStyle(null, String key, Drawable markerPic) 
+	 * @param keys
+	 */
 	public void setKeys(KeyAmenityStyle[] keys){
 		_keys=keys;
 	}
 	
+	/**
+	 * Set KeyAmenityStyle(String amentiy, null, Drawable markerPic) 
+	 * @param amenities
+	 */
 	public void setAmenities(KeyAmenityStyle[] amenities){
 		_amenities=amenities;
 	}
 	
+	/**
+	 * url should look like this http://10.10.43.166:8080/OsmPointsToMapService/OsmPointsToMapService
+	 * @param url
+	 */
+	public void setUrl(String url){
+		_url=url;
+	}
 	
 	
 
@@ -96,7 +123,7 @@ public class Worker {
 			*/
 			
 			StringBuffer urlString = new StringBuffer();
-			urlString.append("http://192.168.120.53:8080/osmpointstomap/osmpointtomap/OsmPoiJson?");
+			urlString.append(_url+"?");
 			urlString.append("swLat="+(bbox.getLowerRightCorner().getLatitudeE6()/1e6)+"&");
 			urlString.append("swLng="+(bbox.getLowerRightCorner().getLongitudeE6()/1e6)+"&");
 			urlString.append("neLat="+(bbox.getUpperLeftCorner().getLatitudeE6()/1e6)+"&");
