@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="org.fakeroot.android.osmpointtomap"
-      android:versionCode="1"
-      android:versionName="1.0">
+	package="org.fakeroot.android.osmpointtomap" android:versionCode="1"
+	android:versionName="1.0">
 
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
-   	 <uses-library android:name="com.google.android.maps" />
-        
-        <activity android:name="org.fakeroot.android.osmpointtomap.OsmPointToMap"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        
-        
-        <activity android:name="org.fakeroot.android.osmpointtomap.InitA" />
-        <activity android:name="org.fakeroot.android.osmpointtomap.MapA" />
-        <activity android:name="org.fakeroot.android.osmpointtomap.ListA" />
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+		<uses-library android:name="com.google.android.maps" />
+
+		<activity android:name="org.fakeroot.android.osmpointtomap.OsmPointToMap"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+
+		<activity android:name="org.fakeroot.android.osmpointtomap.InitA" />
+		<activity android:name="org.fakeroot.android.osmpointtomap.MapA" />
+		<activity android:name="org.fakeroot.android.osmpointtomap.ListA" />
 		<activity android:name="org.fakeroot.android.osmpointtomap.ThxA" />
 		<activity android:name=".OsmPointToMap" android:label="@string/app_name"
-          android:theme="@android:style/Theme.NoTitleBar" />
-		
-    </application>
-    
-    <uses-permission android:name="android.permission.INTERNET" />
+			android:theme="@android:style/Theme.NoTitleBar" />
+		<activity android:name="com.google.ads.AdActivity"
+			android:configChanges="keyboard|keyboardHidden|orientation" />
+
+	</application>
+
+	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
 </manifest>

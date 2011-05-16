@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class ListA extends ListActivity {
@@ -66,7 +65,6 @@ public class ListA extends ListActivity {
 		
 		//start to get data
 		if(_worker.getPoiDTOSave()!=null){
-			String[] pois = new String[_worker.getPoiDTOSave().length];
 			ArrayList<PoiDTO> poiList = new ArrayList<PoiDTO>();
 			for(PoiDTO k: _worker.getPoiDTOSave()){
 				poiList.add(k);

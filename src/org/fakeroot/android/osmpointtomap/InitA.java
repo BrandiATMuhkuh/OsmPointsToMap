@@ -17,19 +17,12 @@
 package org.fakeroot.android.osmpointtomap;
 
 import android.app.TabActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.TabHost;
-import android.widget.Toast;
 
 public class InitA extends TabActivity {
 

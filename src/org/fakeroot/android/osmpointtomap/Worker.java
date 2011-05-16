@@ -48,6 +48,7 @@ public class Worker {
 	private Gson gson = new Gson();
 	private String _url;
 	private String _mapApiKey;
+	private String _adMobId;
 
 	/**
 	 * Set KeyAmenityStyle(null, String key, Drawable markerPic) 
@@ -75,6 +76,20 @@ public class Worker {
 
 	
 	
+
+	/**
+	 * @return the adMobId
+	 */
+	public String getAdMobId() {
+		return _adMobId;
+	}
+
+	/**
+	 * @param adMobId the adMobId to set
+	 */
+	public void setAdMobId(String adMobId) {
+		_adMobId = adMobId;
+	}
 
 	/**
 	 * @return the keys

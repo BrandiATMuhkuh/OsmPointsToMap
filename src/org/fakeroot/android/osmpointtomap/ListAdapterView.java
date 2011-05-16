@@ -1,16 +1,9 @@
 package org.fakeroot.android.osmpointtomap;
 
-import java.util.List;
-
 import org.fakeroot.android.osmpointtomap.pojos.KeyAmenityStyle;
 import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
-
 import android.content.Context;
 import android.graphics.Color;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
