@@ -22,14 +22,11 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-
 import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
 import org.fakeroot.android.osmpointtomap.pojos.KeyAmenityStyle;
 import org.fakeroot.android.osmpointtomap.pojos.PoiContainer;
 import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
-
 import com.google.gson.Gson;
-
 import android.util.Log;
 
 
@@ -50,6 +47,7 @@ public class Worker {
 	private KeyAmenityStyle[] _amenities = null;
 	private Gson gson = new Gson();
 	private String _url;
+	private String _mapApiKey;
 
 	/**
 	 * Set KeyAmenityStyle(null, String key, Drawable markerPic) 
@@ -74,6 +72,7 @@ public class Worker {
 	public void setUrl(String url){
 		_url=url;
 	}
+
 	
 	
 
@@ -89,6 +88,24 @@ public class Worker {
 	 */
 	public KeyAmenityStyle[] getAmenities() {
 		return _amenities;
+	}
+	
+	
+	
+	
+
+	/**
+	 * @return the mapApiKey
+	 */
+	public String getMapApiKey() {
+		return _mapApiKey;
+	}
+
+	/**
+	 * @param mapApiKey the mapApiKey to set
+	 */
+	public void setMapApiKey(String mapApiKey) {
+		_mapApiKey = mapApiKey;
 	}
 
 	private Worker() {

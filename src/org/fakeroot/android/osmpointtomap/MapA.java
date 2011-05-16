@@ -18,22 +18,18 @@ package org.fakeroot.android.osmpointtomap;
 
 import java.util.HashMap;
 import java.util.List;
-
 import org.fakeroot.android.osmpointtomap.marker.HelloItemizedOverlay;
 import org.fakeroot.android.osmpointtomap.marker.OverlayMarker;
 import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
 import org.fakeroot.android.osmpointtomap.pojos.KeyAmenityStyle;
 import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
-
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
-
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PointF;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -41,6 +37,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MapA extends MapActivity{
@@ -59,13 +57,23 @@ public class MapA extends MapActivity{
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.infomapactivity);
         
-        
+                
         //Do something with your map
-        //mapView = new MapView(this, "0S0PTvQ0ddcL66DeaCTV6O9zH8LqOHKI7wFwlSw");
-        mapView = (MapView) findViewById(R.id.mapview);
-        mapView.setBuiltInZoomControls(true);
-        //mapView.setSatellite(true);
+        RelativeLayout layout = ((RelativeLayout)findViewById(R.id.infomaplayout));
+
+        TextView tv2 = new TextView(this);
+        tv2.setText("B");
         
+        
+        //mapView = (MapView) findViewById(R.id.mapview);
+        mapView = new MapView(this, worker.getMapApiKey());
+        mapView.setClickable(true);
+        mapView.setBuiltInZoomControls(true);        
+        
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
+       
+        layout.addView(mapView, lp);
         
         
         List<Overlay> listOfOverlays = mapView.getOverlays();
