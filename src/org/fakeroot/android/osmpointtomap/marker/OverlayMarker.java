@@ -16,7 +16,7 @@
  */
 package org.fakeroot.android.osmpointtomap.marker;
 
-import org.fakeroot.android.osmpointtomap.PoiDTO;
+import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.OverlayItem;

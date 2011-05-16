@@ -16,6 +16,8 @@
  */
 package org.fakeroot.android.osmpointtomap;
 
+import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
+
 import android.app.AlertDialog;
 import android.content.Context;
 

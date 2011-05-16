@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with OsmPointsToMap.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.fakeroot.android.osmpointtomap;
+package org.fakeroot.android.osmpointtomap.pojos;
 
 import android.graphics.drawable.Drawable;
 

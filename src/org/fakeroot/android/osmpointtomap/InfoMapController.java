@@ -16,6 +16,8 @@
  */
 package org.fakeroot.android.osmpointtomap;
 
+import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
+
 public class InfoMapController {
 	
 	private InfoMapActivity _activity;

@@ -21,6 +21,9 @@ import java.util.List;
 
 import org.fakeroot.android.osmpointtomap.marker.HelloItemizedOverlay;
 import org.fakeroot.android.osmpointtomap.marker.OverlayMarker;
+import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
+import org.fakeroot.android.osmpointtomap.pojos.KeyAmenityStyle;
+import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
