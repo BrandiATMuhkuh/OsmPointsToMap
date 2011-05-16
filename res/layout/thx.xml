@@ -4,73 +4,48 @@
     android:layout_height="fill_parent"
     android:stretchColumns="1">
 
-    <TableRow>
-        <TextView
-            android:layout_column="1"
-            android:text="Open..."
-            android:padding="3dip" />
-        <TextView
-            android:text="Ctrl-O"
-            android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
 
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="Save..."
-            android:padding="3dip" />
-        <TextView
-            android:text="Ctrl-S"
-            android:gravity="right"
+            android:text="Open Street Map"
             android:padding="3dip" />
     </TableRow>
-
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="Save As..."
-            android:padding="3dip" />
-        <TextView
-            android:text="Ctrl-Shift-S"
-            android:gravity="right"
+            android:text="osm2psql"
             android:padding="3dip" />
     </TableRow>
-
-    <View
-        android:layout_height="2dip"
-        android:background="#FF909090" />
-
-    <TableRow>
-        <TextView
-            android:text="X"
-            android:padding="3dip" />
-        <TextView
-            android:text="Import..."
-            android:padding="3dip" />
-    </TableRow>
-
-    <TableRow>
-        <TextView
-            android:text="X"
-            android:padding="3dip" />
-        <TextView
-            android:text="Export..."
-            android:padding="3dip" />
-        <TextView
-            android:text="Ctrl-E"
-            android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
-
-    <View
-        android:layout_height="2dip"
-        android:background="#FF909090" />
-
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="Quit"
+            android:text="Android"
             android:padding="3dip" />
     </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="Apache"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="Sun Microsystems"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="PostGres"
+            android:padding="3dip" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="PostGis"
+            android:padding="3dip" />
+    </TableRow>
+
 </TableLayout>
