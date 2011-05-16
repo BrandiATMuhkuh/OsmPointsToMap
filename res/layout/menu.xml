@@ -5,7 +5,7 @@
     <item android:id="@+id/location"
     	android:title="Locate me"
         android:icon="@drawable/icon" />
-    <item android:id="@+id/info"
-        android:title="Info"
+    <item android:id="@+id/thx"
+        android:title="THX"
         android:icon="@drawable/icon" />
 </menu>

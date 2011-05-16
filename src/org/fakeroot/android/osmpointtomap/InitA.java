@@ -69,8 +69,9 @@ public class InitA extends TabActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.info:
-			Toast.makeText(this, "Open info", Toast.LENGTH_LONG).show();
+		case R.id.thx:
+			startActivity(new Intent(this, ThxA.class));
+			
 			break;
 		case R.id.location:
 			Toast.makeText(this, "Locate me", Toast.LENGTH_LONG).show();
