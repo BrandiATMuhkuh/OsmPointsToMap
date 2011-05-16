@@ -17,9 +17,14 @@
 package org.fakeroot.android.osmpointtomap;
 
 import android.app.TabActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,6 +32,8 @@ import android.widget.TabHost;
 import android.widget.Toast;
 
 public class InitA extends TabActivity {
+
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +51,7 @@ public class InitA extends TabActivity {
 		// Initialize a TabSpec for each tab and add it to the TabHost
 		spec = tabHost
 				.newTabSpec("artists")
-				.setIndicator("Artists", res.getDrawable(R.drawable.ic_tab_map))
+				.setIndicator("Artists", res.getDrawable(R.drawable.ic_map_marker))
 				.setContent(intent);
 		tabHost.addTab(spec);
 
@@ -52,9 +59,11 @@ public class InitA extends TabActivity {
 		intent = new Intent().setClass(this, InfoA.class);
 		spec = tabHost
 				.newTabSpec("albums")
-				.setIndicator("Albums", res.getDrawable(R.drawable.ic_tab_list))
+				.setIndicator("Albums", res.getDrawable(R.drawable.ic_notepad))
 				.setContent(intent);
 		tabHost.addTab(spec);
+		
+		
 
 	}
 
@@ -66,21 +75,6 @@ public class InitA extends TabActivity {
 		return true;
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.thx:
-			startActivity(new Intent(this, ThxA.class));
-			
-			break;
-		case R.id.location:
-			Toast.makeText(this, "Locate me", Toast.LENGTH_LONG).show();
-			break;
-		case R.id.search:
-			Toast.makeText(this, "search", Toast.LENGTH_LONG).show();
-			break;
-		}
-		return true;
-	}
+
 	
 }

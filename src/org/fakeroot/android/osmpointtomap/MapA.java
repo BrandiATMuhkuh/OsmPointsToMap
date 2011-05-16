@@ -27,16 +27,27 @@ import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.PointF;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.Toast;
 
-public class MapA extends MapActivity {
+public class MapA extends MapActivity{
 
+	private LocationManager _lm;
+	private boolean userGpsRequest = true;
+	private MapController _mc;
 	private MapView mapView;
 	private InfoMapController controller;
 	//HelloItemizedOverlay itemizedoverlay;
@@ -53,6 +64,8 @@ public class MapA extends MapActivity {
         //mapView = new MapView(this, "0S0PTvQ0ddcL66DeaCTV6O9zH8LqOHKI7wFwlSw");
         mapView = (MapView) findViewById(R.id.mapview);
         mapView.setBuiltInZoomControls(true);
+        //mapView.setSatellite(true);
+        
         
         
         List<Overlay> listOfOverlays = mapView.getOverlays();
@@ -103,10 +116,17 @@ public class MapA extends MapActivity {
         }
         
         
-           
+        
+
+        //location
+        _mc = mapView.getController();
+        _mc.setZoom(16);
         
         
+     
+        _lm= (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         
+        mapChanged();
         
     }
     
@@ -176,6 +196,71 @@ public class MapA extends MapActivity {
         }
 		return false; 
 	}
+
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.thx:
+			startActivity(new Intent(this, ThxA.class));
+			
+			break;
+		case R.id.location:
+			Toast.makeText(this, "Locate me", Toast.LENGTH_LONG).show();
+			userGpsRequest = true;
+			
+			LocationListener locationListener = new LocationListener() {
+				
+				@Override
+				public void onStatusChanged(String provider, int status, Bundle extras) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onProviderEnabled(String provider) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onProviderDisabled(String provider) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onLocationChanged(Location location) {
+					if(location!=null && userGpsRequest){
+						Log.d("OMS", "Location: " +
+								"lat: "+location.getLatitude()+ 
+								"lng: "+location.getLongitude());
+							
+						_mc.setCenter(new GeoPoint((int)(location.getLatitude()*1e6), (int)(location.getLongitude()*1e6)));
+						userGpsRequest=false;
+						_mc.setZoom(16);
+						mapChanged();
+					}
+					
+				}
+			};
+
+	        if(_lm.isProviderEnabled(LocationManager.GPS_PROVIDER))
+	            _lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+	        else if(_lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
+	            _lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+			
+	        
+			break;
+		case R.id.search:
+			Toast.makeText(this, "search", Toast.LENGTH_LONG).show();
+			break;
+		}
+		return true;
+	}
+
+	
+
 
 
 }

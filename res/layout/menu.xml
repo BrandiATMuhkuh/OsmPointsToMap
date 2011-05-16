@@ -1,11 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item android:id="@+id/search"
     	android:title="search"
-        android:icon="@drawable/icon" />
+        android:icon="@drawable/ic_magnify" />
     <item android:id="@+id/location"
     	android:title="Locate me"
-        android:icon="@drawable/icon" />
+        android:icon="@drawable/ic_location" />
     <item android:id="@+id/thx"
         android:title="THX"
-        android:icon="@drawable/icon" />
+        android:icon="@drawable/ic_id_card" />
 </menu>
