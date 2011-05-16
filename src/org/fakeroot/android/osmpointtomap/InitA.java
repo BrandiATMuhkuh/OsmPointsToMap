@@ -26,7 +26,7 @@ import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-public class InitActivity extends TabActivity {
+public class InitA extends TabActivity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class InitActivity extends TabActivity {
 		Intent intent; // Reusable Intent for each tab
 
 		// Create an Intent to launch an Activity for the tab (to be reused)
-		intent = new Intent().setClass(this, InfoMapActivity.class);
+		intent = new Intent().setClass(this, MapA.class);
 
 		// Initialize a TabSpec for each tab and add it to the TabHost
 		spec = tabHost
@@ -49,7 +49,7 @@ public class InitActivity extends TabActivity {
 		tabHost.addTab(spec);
 
 		// Do the same for the other tabs
-		intent = new Intent().setClass(this, InfoListActivity.class);
+		intent = new Intent().setClass(this, InfoA.class);
 		spec = tabHost
 				.newTabSpec("albums")
 				.setIndicator("Albums", res.getDrawable(R.drawable.ic_tab_list))

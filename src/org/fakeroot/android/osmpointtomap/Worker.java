@@ -22,7 +22,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
 import org.fakeroot.android.osmpointtomap.pojos.KeyAmenityStyle;
@@ -31,7 +30,6 @@ import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
 
 import com.google.gson.Gson;
 
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 

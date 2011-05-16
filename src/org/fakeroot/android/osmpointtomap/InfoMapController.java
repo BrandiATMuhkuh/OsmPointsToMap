@@ -20,14 +20,14 @@ import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
 
 public class InfoMapController {
 	
-	private InfoMapActivity _activity;
+	private MapA _activity;
 	private Worker _worker = Worker.getInstance();
 	
 	public InfoMapController() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void setInfoMapActivity(InfoMapActivity activity){
+	public void setInfoMapActivity(MapA activity){
 		_activity=activity;
 	}
 	

@@ -25,7 +25,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class InfoListActivity extends ListActivity {
+public class InfoA extends ListActivity {
 	
 	private Worker _worker = Worker.getInstance();
 	

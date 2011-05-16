@@ -35,7 +35,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 
-public class InfoMapActivity extends MapActivity {
+public class MapA extends MapActivity {
 
 	private MapView mapView;
 	private InfoMapController controller;
@@ -83,7 +83,6 @@ public class InfoMapActivity extends MapActivity {
         controller.setInfoMapActivity(this);
         
         List<Overlay> mapOverlays = mapView.getOverlays();
-        Drawable drawable  = this.getResources().getDrawable(R.drawable.m_market);
         
         if(worker.getKeys()!=null){
         	for(KeyAmenityStyle key:worker.getKeys()){
