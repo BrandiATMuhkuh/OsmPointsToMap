@@ -56,7 +56,7 @@ public class InitA extends TabActivity {
 		tabHost.addTab(spec);
 
 		// Do the same for the other tabs
-		intent = new Intent().setClass(this, InfoA.class);
+		intent = new Intent().setClass(this, ListA.class);
 		spec = tabHost
 				.newTabSpec("albums")
 				.setIndicator("Albums", res.getDrawable(R.drawable.ic_notepad))

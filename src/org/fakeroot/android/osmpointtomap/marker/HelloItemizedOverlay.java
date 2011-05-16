@@ -64,6 +64,6 @@ public class HelloItemizedOverlay extends ItemizedOverlay<OverlayMarker> {
 		OverlayMarker item = mOverlays.get(index);
 		new InfoPop(_context, item.getPoidto());
 		
-		return false;
+		return true;
 	}
 }

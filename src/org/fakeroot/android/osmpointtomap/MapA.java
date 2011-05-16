@@ -69,6 +69,8 @@ public class MapA extends MapActivity{
         
         
         List<Overlay> listOfOverlays = mapView.getOverlays();
+        
+        
         //listOfOverlays.clear();
         listOfOverlays.add(new Overlay(){
         	@Override
@@ -88,7 +90,8 @@ public class MapA extends MapActivity{
     	    }
         	
         	
-        });   
+        }); 
+          
         
         
         
@@ -183,19 +186,6 @@ public class MapA extends MapActivity{
 		controller.onMapChanged(new BoundingBox(mapView.getMapCenter(), mapView.getLatitudeSpan(), mapView.getLongitudeSpan()));
 	}
 	
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		Log.d("osm", "onTouchEvent: "+event.getAction());
-		
-		//---when user lifts his finger---
-        if (event.getAction() == 1) {    
-        	
-	    	Log.d("osm", "changed");
-	    	mapChanged();
-	    	return true;
-        }
-		return false; 
-	}
 
 
 	@Override

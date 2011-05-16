@@ -16,6 +16,10 @@
  */
 package org.fakeroot.android.osmpointtomap;
 
+import java.util.ArrayList;
+
+import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
+
 import android.app.ListActivity;
 import android.content.Context;
 import android.os.Bundle;
@@ -25,7 +29,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class InfoA extends ListActivity {
+public class ListA extends ListActivity {
 	
 	private Worker _worker = Worker.getInstance();
 	
@@ -63,12 +67,12 @@ public class InfoA extends ListActivity {
 		//start to get data
 		if(_worker.getPoiDTOSave()!=null){
 			String[] pois = new String[_worker.getPoiDTOSave().length];
-			
-			for(int i=0;i<_worker.getPoiDTOSave().length;i++){
-				pois[i]=_worker.getPoiDTOSave()[i].getTitle();
+			ArrayList<PoiDTO> poiList = new ArrayList<PoiDTO>();
+			for(PoiDTO k: _worker.getPoiDTOSave()){
+				poiList.add(k);
 			}
 			
-			setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, pois));
+			setListAdapter(new ListViewAdapter(this, poiList));
 		}
 		
 		

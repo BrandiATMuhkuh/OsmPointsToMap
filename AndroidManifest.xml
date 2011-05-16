@@ -19,7 +19,7 @@
         
         <activity android:name="org.fakeroot.android.osmpointtomap.InitA" />
         <activity android:name="org.fakeroot.android.osmpointtomap.MapA" />
-        <activity android:name="org.fakeroot.android.osmpointtomap.InfoA" />
+        <activity android:name="org.fakeroot.android.osmpointtomap.ListA" />
 		<activity android:name="org.fakeroot.android.osmpointtomap.ThxA" />
 		<activity android:name=".OsmPointToMap" android:label="@string/app_name"
           android:theme="@android:style/Theme.NoTitleBar" />
