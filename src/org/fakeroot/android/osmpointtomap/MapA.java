@@ -21,7 +21,7 @@ import java.util.List;
 import org.fakeroot.android.osmpointtomap.marker.HelloItemizedOverlay;
 import org.fakeroot.android.osmpointtomap.marker.OverlayMarker;
 import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
-import org.fakeroot.android.osmpointtomap.pojos.KeyAmenityStyle;
+import org.fakeroot.android.osmpointtomap.pojos.KeyStyle;
 import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
 
 import com.google.ads.AdRequest;
@@ -120,12 +120,22 @@ public class MapA extends MapActivity {
 		List<Overlay> mapOverlays = mapView.getOverlays();
 
 		if (worker.getKeys() != null) {
-			for (KeyAmenityStyle key : worker.getKeys()) {
-				HelloItemizedOverlay temp = new HelloItemizedOverlay(
-						key.getMarkerPic(), this);
-				overlayList.put(key.getKey(), temp);
-				temp.population();
-				mapOverlays.add(temp);
+			for (KeyStyle key : worker.getKeys()) {
+				if(key.getValue()==null){
+					HelloItemizedOverlay temp = new HelloItemizedOverlay(
+							key.getMarkerPic(), this);
+					overlayList.put(key.getKey(), temp);
+					temp.population();
+					mapOverlays.add(temp);
+				}else{
+					for(KeyStyle value: key.getValue()){
+						HelloItemizedOverlay temp = new HelloItemizedOverlay(
+								value.getMarkerPic(), this);
+						overlayList.put(value.getKey(), temp);
+						temp.population();
+						mapOverlays.add(temp);
+					}
+				}
 			}
 		}
 
@@ -154,13 +164,23 @@ public class MapA extends MapActivity {
 
 			if (worker.getKeys() != null) {
 
-				for (KeyAmenityStyle key : worker.getKeys()) {
-					if (poi.getKeyName() != null
-							&& key.getKey().equals(poi.getKeyName())) {
-						Log.d("latLng", "Lat: " + lat + " lng: " + lng
-								+ " ,w: " + poi.getKeyName());
-						overlayList.get(key.getKey()).addOverlay(
-								new OverlayMarker(point, poi));
+				for (KeyStyle key : worker.getKeys()) {
+					if (poi.getKeyName() != null && key.getKey().equals(poi.getKeyName())) {
+						Log.d("response", poi.toString());
+						
+						if(key.getValue()!=null){
+							for(KeyStyle value: key.getValue()){
+								if(value.getKey().equals(poi.getKeyValue())){
+									overlayList.get(poi.getKeyValue()).addOverlay(
+											new OverlayMarker(point, poi));
+								}
+							}
+						}else{
+							overlayList.get(key.getKey()).addOverlay(
+									new OverlayMarker(point, poi));
+						}
+						
+						
 					}
 				}
 			}

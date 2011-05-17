@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
-import org.fakeroot.android.osmpointtomap.pojos.KeyAmenityStyle;
+import org.fakeroot.android.osmpointtomap.pojos.KeyStyle;
 import org.fakeroot.android.osmpointtomap.pojos.PoiContainer;
 import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
 import com.google.gson.Gson;
@@ -43,7 +43,7 @@ public class Worker {
 
 	private static Worker _worker;
 	private PoiDTO[] _responseSave;
-	private KeyAmenityStyle[] _keys = null;
+	private KeyStyle[] _keys = null;
 	private Gson gson = new Gson();
 	private String _url;
 	private String _mapApiKey;
@@ -53,7 +53,7 @@ public class Worker {
 	 * Set KeyAmenityStyle(null, String key, Drawable markerPic) 
 	 * @param keys
 	 */
-	public void setKeys(KeyAmenityStyle[] keys){
+	public void setKeys(KeyStyle[] keys){
 		_keys=keys;
 	}
 	
@@ -86,7 +86,7 @@ public class Worker {
 	/**
 	 * @return the keys
 	 */
-	public KeyAmenityStyle[] getKeys() {
+	public KeyStyle[] getKeys() {
 		return _keys;
 	}
 
@@ -152,8 +152,12 @@ public class Worker {
 			urlString.append("neLng="+(bbox.getUpperLeftCorner().getLongitudeE6()/1e6)+"");
 			
 			if(_keys!=null){
-				for(KeyAmenityStyle kas: _keys){
-					urlString.append("&key="+kas.getKey());
+				for(KeyStyle kas: _keys){
+					urlString.append("&key="+kas.getKey()+":");
+					if(kas.getValue()!=null){
+						for(KeyStyle v:kas.getValue())
+							urlString.append(v.getKey()+":");
+					}
 					
 					//add here special request
 				}

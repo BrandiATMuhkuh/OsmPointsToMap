@@ -18,19 +18,31 @@ package org.fakeroot.android.osmpointtomap.pojos;
 
 import android.graphics.drawable.Drawable;
 
-public class KeyAmenityStyle {
+public class KeyStyle {
 
 	private String _key; 
+	private KeyStyle[] _value;
 	private Drawable _markerPic;
 	
 	/**
-	 * amentiy or key must not be null
+	 * key must not be null
 	 * @param key
 	 * @param markerPic must not be null
 	 */
-	public KeyAmenityStyle(String key, Drawable markerPic) {
+	public KeyStyle(String key, Drawable markerPic) {
 		_key=key;
 		_markerPic=markerPic;
+	}
+	
+	/**
+	 * key must not be null
+	 * @param key 
+	 * @param value
+	 * @param markerPic
+	 */
+	public KeyStyle(String key, KeyStyle[] value, Drawable markerPic) {
+		this(key, markerPic);
+		_value=value;
 	}
 
 
@@ -47,6 +59,13 @@ public class KeyAmenityStyle {
 	 */
 	public Drawable getMarkerPic() {
 		return _markerPic;
+	}
+
+	/**
+	 * @return the value
+	 */
+	public KeyStyle[] getValue() {
+		return _value;
 	}
 	
 	
