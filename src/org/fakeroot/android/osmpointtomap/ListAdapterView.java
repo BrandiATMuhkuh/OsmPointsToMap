@@ -21,15 +21,9 @@ public class ListAdapterView extends LinearLayout {
 		ImageView skyControl = new ImageView( context );
 		
 		//setImage
-		if(poiDto.getKeyName()!=null && poiDto.getKeyVame() !=null){
+		if(poiDto.getKeyName()!=null && poiDto.getKeyName() !=null){
 			for(KeyAmenityStyle kas:Worker.getInstance().getKeys()){
 				if(kas.getKey().equals(poiDto.getKeyName())){
-					skyControl.setImageDrawable(kas.getMarkerPic());
-				}
-			}
-		}else if(poiDto.getAmenity()!=null){
-			for(KeyAmenityStyle kas:Worker.getInstance().getAmenities()){
-				if(kas.getAmentiy().equals(poiDto.getAmenity())){
 					skyControl.setImageDrawable(kas.getMarkerPic());
 				}
 			}

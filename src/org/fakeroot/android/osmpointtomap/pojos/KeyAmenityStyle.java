@@ -20,28 +20,20 @@ import android.graphics.drawable.Drawable;
 
 public class KeyAmenityStyle {
 
-	private String _amentiy;
 	private String _key; 
 	private Drawable _markerPic;
 	
 	/**
 	 * amentiy or key must not be null
-	 * @param amentiy
 	 * @param key
 	 * @param markerPic must not be null
 	 */
-	public KeyAmenityStyle(String amentiy, String key, Drawable markerPic) {
-		_amentiy=amentiy;
+	public KeyAmenityStyle(String key, Drawable markerPic) {
 		_key=key;
 		_markerPic=markerPic;
 	}
 
-	/**
-	 * @return the amentiy
-	 */
-	public String getAmentiy() {
-		return _amentiy;
-	}
+
 
 	/**
 	 * @return the key

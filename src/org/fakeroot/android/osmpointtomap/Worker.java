@@ -44,7 +44,6 @@ public class Worker {
 	private static Worker _worker;
 	private PoiDTO[] _responseSave;
 	private KeyAmenityStyle[] _keys = null;
-	private KeyAmenityStyle[] _amenities = null;
 	private Gson gson = new Gson();
 	private String _url;
 	private String _mapApiKey;
@@ -58,13 +57,6 @@ public class Worker {
 		_keys=keys;
 	}
 	
-	/**
-	 * Set KeyAmenityStyle(String amentiy, null, Drawable markerPic) 
-	 * @param amenities
-	 */
-	public void setAmenities(KeyAmenityStyle[] amenities){
-		_amenities=amenities;
-	}
 	
 	/**
 	 * url should look like this http://10.10.43.166:8080/OsmPointsToMapService/OsmPointsToMapService
@@ -98,13 +90,6 @@ public class Worker {
 		return _keys;
 	}
 
-	/**
-	 * @return the amenities
-	 */
-	public KeyAmenityStyle[] getAmenities() {
-		return _amenities;
-	}
-	
 	
 	
 	
@@ -167,16 +152,10 @@ public class Worker {
 			urlString.append("neLng="+(bbox.getUpperLeftCorner().getLongitudeE6()/1e6)+"");
 			
 			if(_keys!=null){
-				urlString.append("&keys=");
 				for(KeyAmenityStyle kas: _keys){
-					urlString.append(kas.getKey()+":");
-				}
-			}
-			
-			if(_amenities!=null){
-				urlString.append("&amenity=");
-				for(KeyAmenityStyle kas: _amenities){
-					urlString.append(kas.getAmentiy()+":");
+					urlString.append("&key="+kas.getKey());
+					
+					//add here special request
 				}
 			}
 			

@@ -129,15 +129,6 @@ public class MapA extends MapActivity {
 			}
 		}
 
-		if (worker.getAmenities() != null) {
-			for (KeyAmenityStyle amenties : worker.getAmenities()) {
-				HelloItemizedOverlay temp = new HelloItemizedOverlay(
-						amenties.getMarkerPic(), this);
-				overlayList.put(amenties.getAmentiy(), temp);
-				temp.population();
-				mapOverlays.add(temp);
-			}
-		}
 
 		// location
 		_mc = mapView.getController();
@@ -169,18 +160,6 @@ public class MapA extends MapActivity {
 						Log.d("latLng", "Lat: " + lat + " lng: " + lng
 								+ " ,w: " + poi.getKeyName());
 						overlayList.get(key.getKey()).addOverlay(
-								new OverlayMarker(point, poi));
-					}
-				}
-			}
-
-			if (worker.getAmenities() != null) {
-				for (KeyAmenityStyle amenity : worker.getAmenities()) {
-					if (poi.getAmenity() != null
-							&& amenity.getAmentiy().equals(poi.getAmenity())) {
-						Log.d("latLng", "Lat: " + lat + " lng: " + lng
-								+ " ,a: " + poi.getAmenity());
-						overlayList.get(amenity.getAmentiy()).addOverlay(
 								new OverlayMarker(point, poi));
 					}
 				}
