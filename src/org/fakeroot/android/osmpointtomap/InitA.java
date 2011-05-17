@@ -43,16 +43,16 @@ public class InitA extends TabActivity {
 
 		// Initialize a TabSpec for each tab and add it to the TabHost
 		spec = tabHost
-				.newTabSpec("artists")
-				.setIndicator("Artists", res.getDrawable(R.drawable.ic_map_marker))
+				.newTabSpec("Map")
+				.setIndicator("Map", res.getDrawable(R.drawable.ic_map_marker))
 				.setContent(intent);
 		tabHost.addTab(spec);
 
 		// Do the same for the other tabs
 		intent = new Intent().setClass(this, ListA.class);
 		spec = tabHost
-				.newTabSpec("albums")
-				.setIndicator("Albums", res.getDrawable(R.drawable.ic_notepad))
+				.newTabSpec("List")
+				.setIndicator("List", res.getDrawable(R.drawable.ic_notepad))
 				.setContent(intent);
 		tabHost.addTab(spec);
 		

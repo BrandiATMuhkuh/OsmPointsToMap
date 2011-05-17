@@ -18,7 +18,7 @@ public class ListAdapterView extends LinearLayout {
 		//Add picture
         
         LinearLayout.LayoutParams skyParams = 
-            new LinearLayout.LayoutParams(25, LayoutParams.WRAP_CONTENT);
+            new LinearLayout.LayoutParams(60, LayoutParams.WRAP_CONTENT);
 
 		ImageView skyControl = new ImageView( context );
 		
