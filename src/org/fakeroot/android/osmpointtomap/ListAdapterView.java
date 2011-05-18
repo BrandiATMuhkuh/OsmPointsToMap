@@ -58,7 +58,7 @@ public class ListAdapterView extends LinearLayout {
         cityParams.setMargins(1, 1, 1, 1);
 
         TextView cityControl = new TextView( context );
-        if(poiDto.getTitle()!=null)cityControl.setText(poiDto.getTitle());
+        if(poiDto.getTitle()!=null)cityControl.setText(poiDto.getTitle()+ " ("+poiDto.getKeyValue()+")");
         else cityControl.setText("null");
 		
         cityControl.setTextSize(14f);
