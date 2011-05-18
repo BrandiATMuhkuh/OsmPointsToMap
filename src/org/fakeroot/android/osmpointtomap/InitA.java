@@ -16,13 +16,21 @@
  */
 package org.fakeroot.android.osmpointtomap;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
+import com.google.android.maps.MapView;
+
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
+import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
 
 public class InitA extends TabActivity {
 
@@ -41,6 +49,18 @@ public class InitA extends TabActivity {
 		// Create an Intent to launch an Activity for the tab (to be reused)
 		intent = new Intent().setClass(this, MapA.class);
 
+		if(Worker.getInstance().getAdMobId()!=null){
+			LinearLayout layout = ((LinearLayout) findViewById(R.id.initlayout));
+			Worker.getInstance().setAdMob(new AdView(this, AdSize.BANNER, Worker.getInstance().getAdMobId()));
+			
+			AdView adView = Worker.getInstance().getAdMob();
+			AdRequest request = new AdRequest();
+			adView.loadAd(request);
+			layout.addView(adView,0);
+		
+		}
+		
+		
 		// Initialize a TabSpec for each tab and add it to the TabHost
 		spec = tabHost
 				.newTabSpec("Map")

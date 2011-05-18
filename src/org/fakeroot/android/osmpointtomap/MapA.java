@@ -41,12 +41,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
 public class MapA extends MapActivity {
 
-	private AdView adView;
 	private LocationManager _lm;
 	private boolean userGpsRequest = true;
 	private MapController _mc;
@@ -61,37 +61,23 @@ public class MapA extends MapActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.infomapactivity);
-
+		
 		// Do something with your map
-		RelativeLayout layout = ((RelativeLayout) findViewById(R.id.infomaplayout));
-
+		LinearLayout layout = ((LinearLayout) findViewById(R.id.infomaplayout2));
+		
 		// mapView = (MapView) findViewById(R.id.mapview);
 		mapView = new MapView(this, worker.getMapApiKey());
 		mapView.setClickable(true);
 		mapView.setBuiltInZoomControls(true);
 		{
+			/*
 			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
 					RelativeLayout.LayoutParams.FILL_PARENT,
 					RelativeLayout.LayoutParams.WRAP_CONTENT);
-
-			layout.addView(mapView, lp);
+			*/
+			layout.addView(mapView);
 		}
-
-		// Add ads
-		adView = new AdView(this, AdSize.BANNER, worker.getAdMobId());
-		{
-			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-					320,
-					50);
-			// Initiate a generic request to load it with an ad
-			AdRequest request = new AdRequest();
-			request.setTesting(true);
-	        request.addTestDevice(AdRequest.TEST_EMULATOR);
-			adView.loadAd(request);
-			layout.addView(adView,lp);
-		}
-
-		
+			
 
 		List<Overlay> listOfOverlays = mapView.getOverlays();
 
@@ -147,7 +133,8 @@ public class MapA extends MapActivity {
 		_lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
 		mapChanged();
-
+		
+		
 	}
 
 	public void drawMarker(PoiDTO[] markers) {
@@ -249,11 +236,8 @@ public class MapA extends MapActivity {
 						userGpsRequest = false;
 						_mc.setZoom(16);
 						mapChanged();
-						AdRequest request = new AdRequest();
-						request.setTesting(true);
-				        request.addTestDevice(AdRequest.TEST_EMULATOR);
-						request.setLocation(location);
-						adView.loadAd(request);
+						
+						worker.setLocation(location);
 					}
 
 				}

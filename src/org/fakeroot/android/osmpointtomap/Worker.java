@@ -26,7 +26,13 @@ import org.fakeroot.android.osmpointtomap.pojos.BoundingBox;
 import org.fakeroot.android.osmpointtomap.pojos.KeyStyle;
 import org.fakeroot.android.osmpointtomap.pojos.PoiContainer;
 import org.fakeroot.android.osmpointtomap.pojos.PoiDTO;
+
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
 import com.google.gson.Gson;
+
+import android.location.Location;
 import android.util.Log;
 
 
@@ -48,6 +54,7 @@ public class Worker {
 	private String _url;
 	private String _mapApiKey;
 	private String _adMobId;
+	private AdView _adView;
 
 	/**
 	 * Set KeyAmenityStyle(null, String key, Drawable markerPic) 
@@ -66,8 +73,6 @@ public class Worker {
 		_url=url;
 	}
 
-	
-	
 
 	/**
 	 * @return the adMobId
@@ -76,6 +81,23 @@ public class Worker {
 		return _adMobId;
 	}
 
+	public void setAdMob(AdView adView){
+		_adView=adView;
+	}
+	
+	public AdView getAdMob(){
+		return _adView;
+	}
+	
+	public void setLocation(Location location){
+		if(_adMobId!=null){
+			AdRequest request = new AdRequest();
+			request.setLocation(location);
+	        //request.addTestDevice(AdRequest.TEST_EMULATOR);
+			_adView.loadAd(request);
+		}
+	}
+	
 	/**
 	 * @param adMobId the adMobId to set
 	 */
@@ -128,6 +150,7 @@ public class Worker {
 	}
 
 	public PoiDTO[] getPoi(BoundingBox bbox){
+		
 		try {
 			//http://127.0.0.1:8888/osmpointtomap/OsmPoiJson?swLat=55.3&swLng=12.4&neLat=56.2&neLng=11.2
 			Log.d("latLng", ""+bbox.getLowerRightCorner().getLatitudeE6());
